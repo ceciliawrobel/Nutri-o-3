@@ -71,7 +71,6 @@
         .subtexto-institucional { font-size: 14px; font-weight: 600; color: var(--text-main); margin: 2px 0; }
         .setor-institucional { font-size: 14px; font-weight: bold; color: #1abc9c; margin: 0; text-transform: uppercase; }
 
-        /* Estilização do Link Único da Pasta Geral */
         .pasta-drive-container {
             margin: 10px 0;
             text-align: center;
@@ -180,7 +179,6 @@
         [data-theme="dark"] #resultado { background-color: #164e43; color: #a3e4d7; border: 1px solid #1abc9c; }
         .grid-resumo { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 8px; font-size: 12px; text-align: left; }
 
-        /* REGRAS DE IMPRESSÃO */
         @media print {
             @page { size: A4; margin: 8mm 8mm; }
             body { background: #ffffff !important; color: #000000 !important; padding: 0 !important; font-size: 11px !important; }
@@ -189,7 +187,6 @@
             
             .ocultar-no-print { display: none !important; }
             
-            /* Manter o link único visível e clicável no PDF */
             .pasta-drive-container { display: block !important; margin: 5px 0 !important; }
             .link-pasta-drive { 
                 color: #0056b3 !important; 
@@ -281,7 +278,6 @@
 </div>
 
 <script>
-    // Preenche a data de hoje automaticamente
     document.getElementById('txtData').valueAsDate = new Date();
 
     const checklistDados = [
@@ -311,7 +307,7 @@
         {
             secao: "4. VISITANTES",
             perguntas: [
-                { id: "q4_1", txt: "4.1 Entram na cozinha pessoas alheias ao serviço?", max: 2.0, invertida: true }
+                { id: "q4_1", txt: "4.1 Entram pessoas alheias ao serviço na cozinha sem o uso de paramentação adequada?", max: 2.0, invertida: true }
             ]
         },
         {
@@ -454,7 +450,6 @@
             bloco.className = 'pergunta-bloco';
             bloco.id = `bloco_${p.id}`;
 
-            // Se for invertida: SIM = 0 pts e NÃO = max
             const eInvertida = p.invertida || false;
             const pesoSim = eInvertida ? 0 : p.max;
             const pesoNao = eInvertida ? p.max : 0;
@@ -568,7 +563,6 @@
         window.print();
     }
 
-    // Registro do Service Worker para suporte offline
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('./sw.js')
